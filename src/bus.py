@@ -11,16 +11,17 @@ class Bus:
         return len(self.passengers)
 
     def pick_up(self, passenger):
-        return self.passengers.append(passenger)
+        self.passengers.append(passenger)
 
     def drop_off(self, passenger):
-        return self.passengers.remove(passenger)
+        self.passengers.remove(passenger)
+    
     def empty(self):
         self.passengers.clear()
     
     def pick_up_from_stop(self, bus_stop):
         for person in bus_stop.queue:
             self.pick_up(person)
-            bus_stop.queue.remove(person)
+        bus_stop.queue.clear()
             
     
